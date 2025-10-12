@@ -296,9 +296,9 @@ async function loadRecentRequests() {
   if (!container) return;
 
   try {
-    // POST body (optional limit)
+    // fetch all results
     const formData = new FormData();
-    formData.append("limit", 10);
+    formData.append("limit", 10); // backend still returns up to 10
 
     const res = await fetch("api/get-recent-requests.php", {
       method: "POST",
@@ -326,7 +326,10 @@ async function loadRecentRequests() {
       return;
     }
 
-    container.innerHTML = data.map(renderRequestCard).join("");
+    // ✅ Show only first 3 requests (frontend limit)
+    const limitedData = data.slice(0, 3);
+
+    container.innerHTML = limitedData.map(renderRequestCard).join("");
   } catch (err) {
     console.error("Fetch error:", err);
     container.innerHTML = `<p class="text-red-600 text-sm">Network error loading requests.</p>`;
@@ -351,7 +354,9 @@ function renderRequestCard(req) {
       </div>
       <div class="flex-1">
         <p class="font-medium">${req.patient_name || "Anonymous"}</p>
-        <p class="text-sm text-muted-foreground">${req.hospital_name || "Unknown Hospital"} • ${req.district || ""}</p>
+        <p class="text-sm text-muted-foreground">
+          ${req.hospital_name || "Unknown Hospital"} • ${req.district || ""}
+        </p>
       </div>
       <span class="px-2 py-1 rounded text-xs font-medium ${urgencyClass}">
         ${urgency.charAt(0).toUpperCase() + urgency.slice(1)}
@@ -359,4 +364,5 @@ function renderRequestCard(req) {
     </div>
   `;
 }
+
 
