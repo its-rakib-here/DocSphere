@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* === Base Layer === */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+/* === Custom Utilities === */
+@layer components {
+  /* Gradient backgrounds */
+  .gradient-red {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+  }
+  .gradient-red-subtle {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(153, 27, 27, 0.05) 100%);
+  }
+
+  /* Blood type badges */
+  .blood-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  .blood-badge-a {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+  .blood-badge-b {
+    @apply bg-blue-500/20 text-blue-400 border border-blue-500/30;
+  }
+  .blood-badge-ab {
+    @apply bg-purple-500/20 text-purple-400 border border-purple-500/30;
+  }
+  .blood-badge-o {
+    @apply bg-green-500/20 text-green-400 border border-green-500/30;
+  }
+
+  /* Urgency indicators */
+  .urgency-critical {
+    @apply bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+  .urgency-high {
+    @apply bg-orange-500/20 text-orange-400 border border-orange-500/30;
+  }
+  .urgency-medium {
+    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+  .urgency-low {
+    @apply bg-green-500/20 text-green-400 border border-green-500/30;
+  }
+
+  /* Map styles */
+  .map-container {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+    border: 1px solid #27272a;
+  }
+
+  /* Statistics cards */
+  .stat-card {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(153, 27, 27, 0.05) 100%);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+  }
+}
+
+/* === Animations === */
+@layer utilities {
+  .pulse-red {
+    animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
+  }
+}

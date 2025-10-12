@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Section</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style type="text/tailwindcss">
+  @theme {
+    /* === Fonts === */
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* === Main Colors === */
+    --color-clifford: #da373d;
+    --color-primary: oklch(0.205 0 0);
+    --color-primary-foreground: oklch(0.985 0 0);
+
+    --color-secondary: oklch(0.97 0 0);
+    --color-secondary-foreground: oklch(0.205 0 0);
+
+    --color-muted: oklch(0.97 0 0);
+    --color-muted-foreground: oklch(0.556 0 0);
+
+    --color-accent: oklch(0.97 0 0);
+    --color-accent-foreground: oklch(0.205 0 0);
+
+    --color-destructive: oklch(0.577 0.245 27.325);
+    --color-destructive-foreground: oklch(0.985 0 0);
+
+    --color-border: oklch(0.922 0 0);
+    --color-input: oklch(0.922 0 0);
+    --color-ring: oklch(0.708 0 0);
+
+    --color-background: oklch(1 0 0);
+    --color-foreground: oklch(0.145 0 0);
+
+    --color-card: oklch(1 0 0);
+    --color-card-foreground: oklch(0.145 0 0);
+
+    /* === Charts === */
+    --color-chart-1: oklch(0.646 0.222 41.116);
+    --color-chart-2: oklch(0.6 0.118 184.704);
+    --color-chart-3: oklch(0.398 0.07 227.392);
+    --color-chart-4: oklch(0.828 0.189 84.429);
+    --color-chart-5: oklch(0.769 0.188 70.08);
+
+    /* === Radius === */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.625rem;
+    --radius-xl: 1rem;
+
+    /* === Sidebar === */
+    --color-sidebar: oklch(0.985 0 0);
+    --color-sidebar-foreground: oklch(0.145 0 0);
+    --color-sidebar-primary: oklch(0.205 0 0);
+    --color-sidebar-primary-foreground: oklch(0.985 0 0);
+    --color-sidebar-accent: oklch(0.97 0 0);
+    --color-sidebar-accent-foreground: oklch(0.205 0 0);
+    --color-sidebar-border: oklch(0.922 0 0);
+    --color-sidebar-ring: oklch(0.708 0 0);
+  }
+
+</style>
+
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- Navigation -->
+    <nav class="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<i class="fa-solid fa-droplet text-red-600 text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold">LifeLink</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-muted-foreground hover:text-primary transition-colors">Home</a>
+                    <a href="#" class="text-foreground hover:text-primary transition-colors">Find Donors</a>
+                    <a href="requests.html" class="text-muted-foreground hover:text-primary transition-colors">Requests</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="text-muted-foreground hover:text-primary transition-colors">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                    </button>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Header -->
+    <section class="py-12 bg-secondary/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl lg:text-4xl font-bold mb-4">Find Blood Donors</h1>
+                    <p class="text-lg text-muted-foreground">Search for available donors by blood type and location</p>
+                </div>
+                
+                <div class="bg-card border border-border rounded-2xl p-6">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">Blood Type</label>
+                            <select id="bloodType" class="w-full bg-input border border-border rounded-lg px-4 py-3">
+                                <option value="">All Types</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">Radius</label>
+                            <select id="radius" class="w-full bg-input border border-border rounded-lg px-4 py-3">
+                                <option value="5">5 km</option>
+                                <option value="10">10 km</option>
+                                <option value="25">25 km</option>
+                                <option value="50">50 km</option>
+                                <option value="100">100 km</option>
+                            </select>
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium">&nbsp;</label>
+                            <button onclick="searchDonors()" class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-3 rounded-lg font-semibold transition-colors">
+                                <i data-lucide="search" class="w-4 h-4 mr-2 inline"></i>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Filters Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="bg-card border border-border rounded-2xl p-6 sticky top-24">
+                        <h3 class="text-lg font-semibold mb-6">Filter Results</h3>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label class="text-sm font-medium mb-3 block">Blood Types</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button class="blood-badge-a p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">A+</button>
+                                    <button class="blood-badge-a p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">A-</button>
+                                    <button class="blood-badge-b p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">B+</button>
+                                    <button class="blood-badge-b p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">B-</button>
+                                    <button class="blood-badge-ab p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">AB+</button>
+                                    <button class="blood-badge-ab p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">AB-</button>
+                                    <button class="blood-badge-o p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">O+</button>
+                                    <button class="blood-badge-o p-2 rounded text-center text-sm font-bold hover:scale-105 transition-transform">O-</button>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="text-sm font-medium mb-3 block">Availability</label>
+                                <div class="space-y-2">
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 rounded border-border">
+                                        <span class="text-sm">Available Now</span>
+                                    </label>
+                                    <label class="flex items-center">
+                                        <input type="checkbox" class="mr-2 rounded border-border">
+                                        <span class="text-sm">Available This Week</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="text-sm font-medium mb-3 block">Distance</label>
+                                <input type="range" min="1" max="100" value="25" class="w-full">
+                                <div class="flex justify-between text-xs text-muted-foreground mt-1">
+                                    <span>1 km</span>
+                                    <span>100 km</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results List -->
+                <div class="lg:col-span-2">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-xl font-semibold">Available Donors</h2>
+                        <span class="text-muted-foreground" id="resultsCount">24 donors found</span>
+                    </div>
+                    
+                    <div class="space-y-4" id="donorResults">
+                        <!-- Donor Card 1 -->
+                        <div class="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
+                                        <span class="text-primary font-bold">A+</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h3 class="font-semibold">Sarah Johnson</h3>
+                                        <p class="text-sm text-muted-foreground">Last donated: 3 months ago</p>
+                                        <div class="flex items-center space-x-2">
+                                            <i data-lucide="map-pin" class="w-4 h-4 text-muted-foreground"></i>
+                                            <span class="text-sm text-muted-foreground">2.3 km away</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                            <span class="text-sm text-green-400">Available Now</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="p-2 bg-secondary hover:bg-accent rounded-lg transition-colors">
+                                        <i data-lucide="phone" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="p-2 bg-secondary hover:bg-accent rounded-lg transition-colors">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
+                                        Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Donor Card 2 -->
+                        <div class="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
+                                        <span class="text-green-400 font-bold">O+</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h3 class="font-semibold">Michael Chen</h3>
+                                        <p class="text-sm text-muted-foreground">Last donated: 2 months ago</p>
+                                        <div class="flex items-center space-x-2">
+                                            <i data-lucide="map-pin" class="w-4 h-4 text-muted-foreground"></i>
+                                            <span class="text-sm text-muted-foreground">4.1 km away</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-yellow-500 rounded-full"></div>
+                                            <span class="text-sm text-yellow-400">Available This Week</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="p-2 bg-secondary hover:bg-accent rounded-lg transition-colors">
+                                        <i data-lucide="phone" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="p-2 bg-secondary hover:bg-accent rounded-lg transition-colors">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
+                                        Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Donor Card 3 -->
+                        <div class="bg-card border border-border rounded-xl p-6 hover:border-primary/50 transition-colors">
+                            <div class="flex items-start justify-between">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
+                                        <span class="text-blue-400 font-bold">B-</span>
+                                    </div>
+                                    <div class="space-y-1">
+                                        <h3 class="font-semibold">Emma Davis</h3>
+                                        <p class="text-sm text-muted-foreground">Last donated: 4 months ago</p>
+                                        <div class="flex items-center space-x-2">
+                                            <i data-lucide="map-pin" class="w-4 h-4 text-muted-foreground"></i>
+                                            <span class="text-sm text-muted-foreground">1.8 km away</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                            <span class="text-sm text-green-400">Available Now</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex space-x-2">
+                                    <button class="p-2 bg-secondary hover:bg-accent rounded-lg transition-colors">
+                                        <i data-lucide="phone" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="p-2 bg-secondary hover:bg-accent rounded-lg transition-colors">
+                                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                    </button>
+                                    <button class="px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-medium transition-colors">
+                                        Contact
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Load More -->
+                    <div class="text-center mt-8">
+                        <button class="px-6 py-3 border border-border hover:bg-accent rounded-lg font-medium transition-colors">
+                            Load More Donors
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-secondary border-t border-border py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8 rounded-lg flex items-center justify-center">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<i class="fa-solid fa-droplet text-red-600 text-xl"></i>                        </div>
+                        <span class="text-xl font-bold">Blood Section community</span>
+                    </div>
+                    <p class="text-muted-foreground">Connecting blood donors and saving lives through technology.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Find Donors</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Post Request</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Register as Donor</a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Support</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Help Center</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Contact Us</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Emergency</a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Connect</h3>
+                    <div class="flex space-x-4">
+                        <button class="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 LifeLink. All rights reserved. Saving lives together.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Search functionality
+        function searchDonors() {
+            const bloodType = document.getElementById('bloodType').value;
+            const radius = document.getElementById('radius').value;
+            
+            console.log(`Searching for ${bloodType || 'all'} blood types within ${radius}km`);
+            
+            // Update results count
+            document.getElementById('resultsCount').textContent = `${Math.floor(Math.random() * 50) + 10} donors found`;
+        }
+        
+        // Blood type filter functionality
+        document.querySelectorAll('[class*="blood-badge"]').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('[class*="blood-badge"]').forEach(btn => {
+                    btn.classList.remove('ring-2', 'ring-primary');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('ring-2', 'ring-primary');
+                
+                // Update search
+                searchDonors();
+            });
+        });
+    </script>
+</body>
+</html>

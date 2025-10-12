@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Section</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+ <style type="text/tailwindcss">
+  @theme {
+    /* === Fonts === */
+    --font-sans: "Inter", system-ui, sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* === Main Colors === */
+    --color-clifford: #da373d;
+    --color-primary: oklch(0.205 0 0);
+    --color-primary-foreground: oklch(0.985 0 0);
+
+    --color-secondary: oklch(0.97 0 0);
+    --color-secondary-foreground: oklch(0.205 0 0);
+
+    --color-muted: oklch(0.97 0 0);
+    --color-muted-foreground: oklch(0.556 0 0);
+
+    --color-accent: oklch(0.97 0 0);
+    --color-accent-foreground: oklch(0.205 0 0);
+
+    --color-destructive: oklch(0.577 0.245 27.325);
+    --color-destructive-foreground: oklch(0.985 0 0);
+
+    --color-border: oklch(0.922 0 0);
+    --color-input: oklch(0.922 0 0);
+    --color-ring: oklch(0.708 0 0);
+
+    --color-background: oklch(1 0 0);
+    --color-foreground: oklch(0.145 0 0);
+
+    --color-card: oklch(1 0 0);
+    --color-card-foreground: oklch(0.145 0 0);
+
+    /* === Charts === */
+    --color-chart-1: oklch(0.646 0.222 41.116);
+    --color-chart-2: oklch(0.6 0.118 184.704);
+    --color-chart-3: oklch(0.398 0.07 227.392);
+    --color-chart-4: oklch(0.828 0.189 84.429);
+    --color-chart-5: oklch(0.769 0.188 70.08);
+
+    /* === Radius === */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.625rem;
+    --radius-xl: 1rem;
+
+    /* === Sidebar === */
+    --color-sidebar: oklch(0.985 0 0);
+    --color-sidebar-foreground: oklch(0.145 0 0);
+    --color-sidebar-primary: oklch(0.205 0 0);
+    --color-sidebar-primary-foreground: oklch(0.985 0 0);
+    --color-sidebar-accent: oklch(0.97 0 0);
+    --color-sidebar-accent-foreground: oklch(0.205 0 0);
+    --color-sidebar-border: oklch(0.922 0 0);
+    --color-sidebar-ring: oklch(0.708 0 0);
+  }
+    html {
+    scroll-behavior: smooth;
+  }
+  #requests {
+  scroll-margin-top: 64px; /* adjust if your navbar height changes */
+}
+</style>
+</head>
+
+<body class="bg-background text-foreground font-sans antialiased">
+    <!-- Navigation -->
+    <nav class=" border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8  rounded-lg flex items-center justify-center">
+                       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+                       <i class="fa-solid fa-droplet text-red-600 text-xl"></i>
+                    </div>
+                    <span class="text-xl font-bold">Blood community Section</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="text-foreground hover:text-primary transition-colors">Home</a>
+                    <a href="requests.html" class="text-muted-foreground hover:text-primary transition-colors">Requests</a>
+                    <a href="donors.html" class="text-muted-foreground hover:text-primary transition-colors">Find Donors</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="text-muted-foreground hover:text-primary transition-colors">
+                        <i data-lucide="bell" class="w-5 h-5"></i>
+                    </button>
+                    <a href="requests.html">
+
+                 
+                    <button class="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-lg font-medium transition-colors pulse-red">
+                        Donate Now
+                    </button>
+                       </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class=""></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
+                            <i data-lucide="activity" class="w-4 h-4 mr-2"></i>
+                            Saving Lives Together
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold leading-tight text-balance">
+                            Connect Blood Donors,
+                            <span class="text-primary">Save Lives</span>
+                        </h1>
+                        <p class="text-xl text-muted-foreground text-pretty">
+                            Join our community of life-savers. Find blood donors near you or register to help others in their time of need.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                       <a href="#requests"
+                            class="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors pulse-red inline-block">
+                                Request Blood
+                        </a>
+                        <a href="donor-registration.html" 
+                          class="border border-border hover:bg-accent text-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-block">
+                          Become a Donor
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-card border border-border rounded-2xl p-8 shadow-2xl">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-lg font-semibold">Recent Blood Requests</h3>
+                                <span class="text-sm text-muted-foreground">Live Updates</span>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
+                                    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                                        <span class="text-primary font-bold">A+</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium">Sarah Johnson</p>
+                                        <p class="text-sm text-muted-foreground">City Hospital • 2.3 km away</p>
+                                    </div>
+                                    <span class="urgency-critical px-2 py-1 rounded text-xs font-medium">Critical</span>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
+                                    <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
+                                        <span class="text-blue-400 font-bold">O-</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium">Michael Chen</p>
+                                        <p class="text-sm text-muted-foreground">General Hospital • 4.1 km away</p>
+                                    </div>
+                                    <span class="urgency-high px-2 py-1 rounded text-xs font-medium">High</span>
+                                </div>
+                                
+                                <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
+                                    <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
+                                        <span class="text-purple-400 font-bold">AB+</span>
+                                    </div>
+                                    <div class="flex-1">
+                                        <p class="font-medium">Emma Davis</p>
+                                        <p class="text-sm text-muted-foreground">Metro Medical • 1.8 km away</p>
+                                    </div>
+                                    <span class="urgency-medium px-2 py-1 rounded text-xs font-medium">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-secondary/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Know that your donation is making a difference</h2>
+                <p class="text-muted-foreground text-lg">Every donation saves lives. See the impact our community is making.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="stat-card rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">2,564</div>
+                    <div class="text-muted-foreground">Registered Donors</div>
+                </div>
+                <div class="stat-card rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">4,282</div>
+                    <div class="text-muted-foreground">Lives Saved</div>
+                </div>
+                <div class="stat-card rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">156</div>
+                    <div class="text-muted-foreground">Active Requests</div>
+                </div>
+                <div class="stat-card rounded-2xl p-8 text-center">
+                    <div class="text-4xl font-bold text-primary mb-2">89%</div>
+                    <div class="text-muted-foreground">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Request Blood Section -->
+<section id="requests" class="py-20 bg-secondary/30">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl lg:text-4xl font-bold mb-4">Post a Blood Request</h2>
+        <p class="text-lg text-muted-foreground">
+          Need blood urgently? Post your request and connect with nearby donors instantly.
+        </p>
+      </div>
+
+      <div class="bg-card border border-border rounded-2xl p-8">
+        <form id="bloodRequestForm" class="space-y-6">
+          <!-- Form Fields -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Patient Name *</label>
+              <input
+                type="text"
+                name="patient_name"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+                placeholder="Enter patient name"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Blood Type Required *</label>
+              <select
+                name="blood_type"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+              >
+                <option value="">Select blood type</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Units Needed *</label>
+              <input
+                type="number"
+                name="units_needed"
+                min="1"
+                max="10"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+                placeholder="Number of units"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Urgency Level *</label>
+              <select
+                name="urgency_level"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+              >
+                <option value="">Select urgency</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="critical">Critical</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Hospital Name *</label>
+              <input
+                type="text"
+                name="hospital_name"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+                placeholder="Enter hospital name"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Needed By Date *</label>
+              <input
+                type="datetime-local"
+                name="needed_by_date"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-sm font-medium">Hospital Address *</label>
+            <textarea
+              name="hospital_address"
+              required
+              class="w-full bg-input border border-border rounded-lg px-4 py-3 h-24"
+              placeholder="Enter complete hospital address"
+            ></textarea>
+          </div>
+
+          <!-- 🏙️ District Selection -->
+          <div class="space-y-2">
+            <label class="text-sm font-medium">Select District *</label>
+            <select
+              name="district"
+              id="district"
+              required
+              class="w-full bg-input border border-border rounded-lg px-4 py-3"
+            >
+              <option value="">Select district</option>
+            </select>
+          </div>
+
+          <!-- 📍 Map Section -->
+          <div class="space-y-3">
+            <label class="text-sm font-medium">Select Location on Map *</label>
+            <div id="map" class="w-full h-80 rounded-lg border border-border"></div>
+            <button
+              type="button"
+              id="detectLocationBtn"
+              class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg mt-3 transition"
+            >
+              📍 Detect Current Location
+            </button>
+            <input type="hidden" id="latitude" name="latitude" />
+            <input type="hidden" id="longitude" name="longitude" />
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Contact Person *</label>
+              <input
+                type="text"
+                name="contact_person"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+                placeholder="Contact person name"
+              />
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-medium">Contact Phone *</label>
+              <input
+                type="tel"
+                name="contact_phone"
+                required
+                class="w-full bg-input border border-border rounded-lg px-4 py-3"
+                placeholder="Enter phone number"
+              />
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="text-sm font-medium">Additional Details</label>
+            <textarea
+              name="description"
+              class="w-full bg-input border border-border rounded-lg px-4 py-3 h-24"
+              placeholder="Any additional information about the patient's condition or requirements..."
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-primary hover:bg-primary/90 text-primary-foreground py-4 rounded-lg font-semibold text-lg transition-colors pulse-red"
+          >
+            <i data-lucide="send" class="w-5 h-5 mr-2 inline"></i>
+            Post Blood Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Leaflet Map JS & CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<!-- External JS File -->
+<!-- <script src="blood-request.js"></script> -->
+
+
+
+
+    <!-- Footer -->
+    <footer class="bg-secondary border-t border-border py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-2">
+                        <div class="w-8 h-8  rounded-lg flex items-center justify-center">
+                         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+                            <i class="fa-solid fa-droplet text-red-600 text-xl"></i>
+                        </div>
+                        <span class="text-xl font-bold">Blood community section</span>
+                    </div>
+                    <p class="text-muted-foreground">Connecting blood donors and saving lives through technology.</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Quick Links</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Find Donors</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Post Request</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Register as Donor</a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Support</h3>
+                    <div class="space-y-2">
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Help Center</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Contact Us</a>
+                        <a href="#" class="block text-muted-foreground hover:text-primary transition-colors">Emergency</a>
+                    </div>
+                </div>
+                
+                <div class="space-y-4">
+                    <h3 class="font-semibold">Connect</h3>
+                    <div class="flex space-x-4">
+                        <button class="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="twitter" class="w-5 h-5"></i>
+                        </button>
+                        <button class="w-10 h-10 bg-muted rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-border mt-8 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 LifeLink. All rights reserved. Saving lives together.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/lucide/dist/lucide.min.js"></script>
+     <script src="js/index.js"></script> 
+
+   <script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
