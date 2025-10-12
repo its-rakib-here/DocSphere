@@ -4,3 +4,5 @@
 [2025-10-10 08:45:39] Uncaught Exception: Cannot add or update a child row: a foreign key constraint fails (`docsphere`.`blood_requests`, CONSTRAINT `blood_requests_ibfk_1` FOREIGN KEY (`requester_id`) REFERENCES `usersforblood` (`id`) ON DELETE CASCADE)
 [2025-10-12 11:30:46] Uncaught Exception: No connection could be made because the target machine actively refused it
 [2025-10-12 11:33:40] Uncaught Exception: No connection could be made because the target machine actively refused it
+[2025-10-12 21:14:59] Duplicate donor found: admin@gmail.com / +8801602253765
+[2025-10-12 21:15:25] Duplicate donor found: admin@gmail.com / +8801602253764
