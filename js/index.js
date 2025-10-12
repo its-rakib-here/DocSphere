@@ -14,6 +14,8 @@ function initializeHomePage() {
   initializeFormSubmission();
   initializeStatisticsAnimation();
   initializeLocationMap();
+    initializeRecentRequests(); // ✅ add this
+
 }
 
 // --------------------
@@ -279,3 +281,82 @@ function initializeLocationMap() {
     });
   }
 }
+
+
+// ----------------------------
+// 🩸 Load & Render Recent Requests (POST)
+// ----------------------------
+function initializeRecentRequests() {
+  loadRecentRequests();
+  setInterval(loadRecentRequests, 30000); // refresh every 30s
+}
+
+async function loadRecentRequests() {
+  const container = document.getElementById("recentRequests");
+  if (!container) return;
+
+  try {
+    // POST body (optional limit)
+    const formData = new FormData();
+    formData.append("limit", 10);
+
+    const res = await fetch("api/get-recent-requests.php", {
+      method: "POST",
+      body: formData,
+    });
+
+    const text = await res.text();
+    let json;
+    try {
+      json = JSON.parse(text);
+    } catch (e) {
+      container.innerHTML = `<p class="text-red-600 text-sm">Invalid JSON from server.</p>`;
+      console.error("Response:", text);
+      return;
+    }
+
+    if (!json.success) {
+      container.innerHTML = `<p class="text-red-600 text-sm">${json.message || "Failed to load requests."}</p>`;
+      return;
+    }
+
+    const data = json.data || [];
+    if (data.length === 0) {
+      container.innerHTML = `<p class="text-sm text-muted-foreground">No recent blood requests found.</p>`;
+      return;
+    }
+
+    container.innerHTML = data.map(renderRequestCard).join("");
+  } catch (err) {
+    console.error("Fetch error:", err);
+    container.innerHTML = `<p class="text-red-600 text-sm">Network error loading requests.</p>`;
+  }
+}
+
+function renderRequestCard(req) {
+  const urgencyColors = {
+    low: "bg-emerald-100 text-emerald-700",
+    medium: "bg-yellow-100 text-yellow-800",
+    high: "bg-orange-100 text-orange-800",
+    critical: "bg-red-100 text-red-700",
+  };
+
+  const urgency = req.urgency_level ? req.urgency_level.toLowerCase() : "medium";
+  const urgencyClass = urgencyColors[urgency] || urgencyColors.medium;
+
+  return `
+    <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
+      <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+        <span class="text-primary font-bold">${req.blood_type || "?"}</span>
+      </div>
+      <div class="flex-1">
+        <p class="font-medium">${req.patient_name || "Anonymous"}</p>
+        <p class="text-sm text-muted-foreground">${req.hospital_name || "Unknown Hospital"} • ${req.district || ""}</p>
+      </div>
+      <span class="px-2 py-1 rounded text-xs font-medium ${urgencyClass}">
+        ${urgency.charAt(0).toUpperCase() + urgency.slice(1)}
+      </span>
+    </div>
+  `;
+}
+

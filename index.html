@@ -106,85 +106,71 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden">
-        <div class=""></div>
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div class="space-y-4">
-                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20">
-                            <i data-lucide="activity" class="w-4 h-4 mr-2"></i>
-                            Saving Lives Together
-                        </div>
-                        <h1 class="text-4xl lg:text-6xl font-bold leading-tight text-balance">
-                            Connect Blood Donors,
-                            <span class="text-primary">Save Lives</span>
-                        </h1>
-                        <p class="text-xl text-muted-foreground text-pretty">
-                            Join our community of life-savers. Find blood donors near you or register to help others in their time of need.
-                        </p>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                       <a href="#requests"
-                            class="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors pulse-red inline-block">
-                                Request Blood
-                        </a>
-                        <a href="donor-registration.html" 
-                          class="border border-border hover:bg-accent text-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-block">
-                          Become a Donor
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="relative">
-                    <div class="bg-card border border-border rounded-2xl p-8 shadow-2xl">
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between">
-                                <h3 class="text-lg font-semibold">Recent Blood Requests</h3>
-                                <span class="text-sm text-muted-foreground">Live Updates</span>
-                            </div>
-                            
-                            <div class="space-y-4">
-                                <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
-                                    <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-                                        <span class="text-primary font-bold">A+</span>
-                                    </div>
-                                    <div class="flex-1">
-                                        <p class="font-medium">Sarah Johnson</p>
-                                        <p class="text-sm text-muted-foreground">City Hospital • 2.3 km away</p>
-                                    </div>
-                                    <span class="urgency-critical px-2 py-1 rounded text-xs font-medium">Critical</span>
-                                </div>
-                                
-                                <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
-                                    <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-                                        <span class="text-blue-400 font-bold">O-</span>
-                                    </div>
-                                    <div class="flex-1">
-                                        <p class="font-medium">Michael Chen</p>
-                                        <p class="text-sm text-muted-foreground">General Hospital • 4.1 km away</p>
-                                    </div>
-                                    <span class="urgency-high px-2 py-1 rounded text-xs font-medium">High</span>
-                                </div>
-                                
-                                <div class="flex items-center space-x-4 p-4 bg-secondary rounded-lg">
-                                    <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                                        <span class="text-purple-400 font-bold">AB+</span>
-                                    </div>
-                                    <div class="flex-1">
-                                        <p class="font-medium">Emma Davis</p>
-                                        <p class="text-sm text-muted-foreground">Metro Medical • 1.8 km away</p>
-                                    </div>
-                                    <span class="urgency-medium px-2 py-1 rounded text-xs font-medium">Medium</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+   <section class="relative overflow-hidden">
+  <div class=""></div>
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- 🌟 Left Side: Text and Buttons -->
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <div
+            class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium border border-primary/20"
+          >
+            <i data-lucide="activity" class="w-4 h-4 mr-2"></i>
+            Saving Lives Together
+          </div>
+          <h1
+            class="text-4xl lg:text-6xl font-bold leading-tight text-balance"
+          >
+            Connect Blood Donors,
+            <span class="text-primary">Save Lives</span>
+          </h1>
+          <p class="text-xl text-muted-foreground text-pretty">
+            Join our community of life-savers. Find blood donors near you or
+            register to help others in their time of need.
+          </p>
         </div>
-    </section>
+
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="#requests"
+            class="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors pulse-red inline-block"
+          >
+            Request Blood
+          </a>
+          <a
+            href="donor-registration.html"
+            class="border border-border hover:bg-accent text-foreground px-8 py-4 rounded-lg font-semibold text-lg transition-colors inline-block"
+          >
+            Become a Donor
+          </a>
+        </div>
+      </div>
+
+      <!-- ❤️ Right Side: Recent Requests -->
+      <div class="relative">
+        <div
+          class="bg-card border border-border rounded-2xl p-8 shadow-2xl"
+        >
+          <div class="space-y-6">
+            <div class="flex items-center justify-between">
+              <h3 class="text-lg font-semibold">Recent Blood Requests</h3>
+              <span class="text-sm text-muted-foreground">Live Updates</span>
+            </div>
+
+            <!-- ✅ Dynamic content container -->
+            <div id="recentRequests" class="space-y-4">
+              <p class="text-sm text-muted-foreground">
+                Loading recent requests...
+              </p>
+            </div>
+            <!-- The JS will inject cards here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- Statistics Section -->
     <section class="py-16 bg-secondary/50">
