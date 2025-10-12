@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die(json_encode(["success" => false, "message" => "Database connection failed: " . $conn->connect_error]));
 }else
 {
-    echo "hello";
+    echo "not connected";
 }
 
 $conn->set_charset("utf8");
