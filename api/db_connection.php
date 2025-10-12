@@ -4,7 +4,7 @@
 $host = "localhost";     // Database host
 $user = "root";          // MySQL username
 $pass = "";              // MySQL password
-$db   = "docsphere"; // Your database name
+$db   = "docsphere_copy"; // Your database name
 
 $conn = new mysqli($host, $user, $pass, $db);
 
