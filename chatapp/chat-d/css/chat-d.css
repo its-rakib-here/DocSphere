@@ -1,0 +1,15 @@
+body { background: linear-gradient(to bottom,#0A2438,#1A5A7F,#6F9DB5); color: white; }
+.chat-container { display: flex; gap: 20px; max-width: 1200px; margin: 20px auto; }
+.user-list { width: 250px; background: rgba(30,50,70,0.85); padding: 20px; border-radius: 10px; max-height: 600px; overflow-y: auto; }
+.user-card { padding: 10px; margin-bottom: 10px; background: rgba(50,90,130,0.75); border-radius: 8px; cursor: pointer; transition: all 0.3s; }
+.user-card:hover { background: rgba(70,120,180,0.85); }
+.user-card .unread { background: red; color: white; font-size: 12px; padding: 2px 6px; border-radius: 12px; margin-left: 5px; }
+.chat-box { flex: 1; background: rgba(255,255,255,0.9); color: #000; padding: 20px; border-radius: 10px; max-height: 600px; display: flex; flex-direction: column; }
+#messages { flex: 1; overflow-y: auto; margin-bottom: 10px; }
+.message { margin-bottom: 10px; max-width: 70%; padding: 8px 12px; border-radius: 12px; }
+.message.user { background: #f0f0f0; align-self: flex-start; }
+.message.doctor { background: #93c5fd; align-self: flex-end; color: #000; }
+.message .time { font-size: 10px; color: #555; margin-top: 2px; }
+textarea { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; resize: none; }
+button { background: #0A2438; color: white; padding: 10px 20px; border-radius: 8px; margin-top: 5px; cursor: pointer; }
+button:hover { background: #1A5A7F; }
